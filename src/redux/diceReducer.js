@@ -21,9 +21,10 @@ const diceReducer = (state = initialState, action) => {
       }));
 
       const total = diceList.reduce((total, dice) => (total += dice.face), 0);
+      // Rule: Tài >= 11,  3 <= Xỉu <= 10
       if (
-        (!state.taiXiu && 3 <= total && total <= 11) ||
-        (state.taiXiu && total >= 12)
+        (!state.taiXiu && 3 <= total && total <= 10) ||
+        (state.taiXiu && total >= 11)
       )
         state.winMatch++;
 
